@@ -6,7 +6,9 @@ const CharacterListContainer = () => {
     const [page, setPage] = useState(1)
     
     const handlePrev = () => {
-        setPage(page - 1)
+        if (page > 1) {
+            setPage(page - 1)
+        }
     }
 
     const handleNext = () => {
@@ -21,7 +23,7 @@ const CharacterListContainer = () => {
     },[page])
 
     return(
-        <CharacterList character={characters} />
+        <CharacterList character={characters} handlePrev={handlePrev} handleNext={handleNext}/>
     )
 }
 

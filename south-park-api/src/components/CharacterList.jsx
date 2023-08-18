@@ -1,16 +1,16 @@
 import Card from "./Card"
 
-const CharacterList = ({character}) => {
+const CharacterList = ({character, handlePrev, handleNext}) => {
     return(
-        <div>
-            <div className="row">
-                <button className="btn btn-primary">Prev</button>
+        <div className="container">
+            <div className="d-flex justify-content-between ms-4 me-4 mb-2">
+                <button onClick={handlePrev} className="btn btn-primary">Prev</button>
 
-                <button className="btn btn-primary">Next</button>
+                <button onClick={handleNext} className="btn btn-primary">Next</button>
             </div>
             <div className="row">
-                {character.map((character) => (
-                    <Card character={character} key={character.id} />
+                {character.map((char) => (
+                    <Card character={char} key={char.id} />
                 ))}
             </div>
         </div>
